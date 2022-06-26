@@ -1,6 +1,12 @@
 import random
+import tkinter as tkinter
+#from tkinter import *
+
 #definition
 #idea: make graphic, show history, show history of times roll
+
+continueLoopSoftware = True
+
 def returnResult(randomNumber):
    # toReturn
     for i in range(0,randomNumber,1):
@@ -20,19 +26,11 @@ def printDice(result):
     elif(result==6):
         print("6")
     return
-
-print("Welcome to dice rolling system")
-loop = True
-while(loop):
-    
-    times = int(input('Type times you need to roll (normally 1 is enough): '))
-    randomNumber = 1
-    result = returnResult(randomNumber)
-    printDice(result)
-    stringInput ="ss"
-    while(stringInput !='y'and stringInput !='n'):
-        stringInput = input("Do you want to re-roll? <y/n - no UpperCase available> ")
-    if(stringInput=="n"):
-        loop=False
-print("Thanks for using! Feel free to exit.")
-    
+def startSoftware():
+    print("Welcome to dice rolling system")
+    loop = True 
+        # times = int(input('Type times you need to roll (normally 1 is enough - no input string!): '))
+        # RollButton.configure(command=printDice(returnResult(times)))
+        # result = returnResult(times)
+    print("Thanks for using! Feel free to exit.")
+    return 

@@ -3,6 +3,7 @@ from cgitb import text
 import tkinter as tk
 import tkinter.ttk as ttk
 from turtle import bgcolor
+import main as main
 
 
 class Render:
@@ -15,16 +16,40 @@ class Render:
         self.window.geometry(self.valueOfScreen)
         self.greeting = ttk.Label(
             text='Welcome to dice rolling system',
-            background='red',
-            width=SCREEN_WIDTH)
+            background='red')
         self.rollButton = ttk.Button(text="Roll Now!", width=25)
         self.entryNumberOfRerollPerRoll = ttk.Entry(width=25)
 
+        self.btn_increaseTRPR = ttk.Button(
+            text="+", command=main.increaseTRPR)
+        self.label_TRPR = ttk.Label(text=main.timesRerollPerRoll)
+        self.label_TRPR['text'] = "uploaded"
+        self.btn_decreaseTRPR = ttk.Button(
+            text="-",
+            command=main.decreaseTRPR,
+        )
+
     def packRender(self):
-        self.greeting.pack()
+
         self.rollButton.pack()
         self.entryNumberOfRerollPerRoll.pack()
         print("Worked")
 
-    def mainLoop(self):
-        self.window.mainloop()
+    def gridRender(self):
+        self.window.rowconfigure(0, minsize=50, weight=1)
+        self.window.columnconfigure([0, 1, 2], minsize=50, weight=1)
+        self.greeting.grid(row=0, pady=5)
+        self.btn_increaseTRPR.grid(row=1, column=0, sticky="nsew")
+        self.label_TRPR.grid(row=1, column=1)
+        self.label_TRPR['text'] = main.timesRerollPerRoll
+        # self.btn_decreaseTRPR.configure(bg="blue")
+        self.btn_decreaseTRPR.grid(row=1, column=2, sticky="nsew")
+        self.greeting1 = ttk.Label(
+            text='Welcome to dice rolling system',
+            background='red')
+        self.greeting1.grid(row=2, sticky="nsew")
+        print("TRPR is to : {} ".format(main.timesRerollPerRoll))
+
+    # def render_increaseTRPR(self):
+
+    # def render_decreaseTRPR(self):

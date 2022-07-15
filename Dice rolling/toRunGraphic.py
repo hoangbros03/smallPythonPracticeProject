@@ -5,7 +5,7 @@ import numpy as np
 import random
 showResult = False
 numberResult = -1
-testingMultipleTimes = 50
+testingMultipleTimes = 1
 # declaring session_state variable that static through process
 if 'historyOfRolling' not in st.session_state:
     st.session_state.historyOfRolling = []
